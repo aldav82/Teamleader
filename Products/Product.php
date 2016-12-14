@@ -40,6 +40,11 @@ class Product
     private $stockAmount;
 
     /**
+     * @var int
+     */
+    private $productId;
+
+    /**
      * @var array
      */
     private $customFields;
@@ -178,6 +183,21 @@ class Product
         return $this->customFields;
     }
 
+
+    /**
+     * @return int
+     */
+    public function getProductId() {
+        return $this->productId;
+    }
+
+    /**
+     * @param int $productId
+     */
+    public function setProductId($productId) {
+        $this->productId = $productId;
+    }
+
     /**
      * Initialize an Product with raw data we got from the API
      *
@@ -230,6 +250,10 @@ class Product
 
         if ($this->getExternalId()) {
             $return['external_id'] = $this->getExternalId();
+        }
+
+        if ($this->getProductId()) {
+            $return['product_id'] = $this->getProductId();
         }
         if ($this->getStockAmount() !== 0) {
             $return['stock_amount'] = $this->getStockAmount();
