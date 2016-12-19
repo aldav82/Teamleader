@@ -870,6 +870,16 @@ class Teamleader
     }
 
     /**
+     * Retrieves deal phases
+     *
+     * @return mixed Deal phases
+     */
+    public function dealsGetDealPhases()
+    {
+        return $this->doCall('getDealPhases.php');
+    }
+
+    /**
      * Adds an invoice
      *
      * @param  Invoice $invoice
