@@ -870,6 +870,20 @@ class Teamleader
     }
 
     /**
+     * Updates deal items
+     *
+     * @param Deal $deal
+     * @return void
+     */
+    public function dealsUpdateDealItems(Deal $deal)
+    {
+        $fields = $deal->toArrayForApi(false);
+        $fields['deal_id'] = (int) $deal->getId();
+
+        return $this->doCall('updateDealItems.php', $fields);
+    }
+
+    /**
      * Retrieves deal phases
      *
      * @return mixed Deal phases
